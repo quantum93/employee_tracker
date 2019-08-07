@@ -21,4 +21,10 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* _In order to delete one of division row, you need to add
+"dependent: :destroy" in division.rb under app/models. It looks like
+
+class Division < ApplicationRecord
+  has_many :employees, dependent: :destroy
+end
+_
