@@ -6,7 +6,7 @@ class DivisionsController < ApplicationController
   end
 
   def new
-    @divisions = Division.new
+    @division = Division.new
     render :new
   end
 
