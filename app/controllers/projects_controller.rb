@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
   def update
     @project= Project.find(params[:id])
     if @project.update(project_params)
+      EmployeeProject.create(employee_id: params[:employee], project_id: params[:id])
       redirect_to projects_path
     else
       render :edit
@@ -45,9 +46,6 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def assign
-    EmployeeProject.create(employee_id: params[:employee], project_id: params[:id])
-  end
 
   private
   def project_params
