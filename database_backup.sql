@@ -234,11 +234,12 @@ environment	development	2019-08-07 17:44:44.191717	2019-08-07 17:44:44.191717
 --
 
 COPY public.divisions (id, name) FROM stdin;
-4	IT
-5	Research
-6	Marketing
-3	sales
-2	Human Resource
+26	Human Resource
+27	Information Technology
+28	Research
+29	Sales
+30	Marketing
+31	Administration
 \.
 
 
@@ -256,11 +257,18 @@ COPY public.employee_projects (id, employee_id, project_id) FROM stdin;
 --
 
 COPY public.employees (id, name, division_id) FROM stdin;
-2	Bob	2
-3	Jake	4
-4	Josh	5
-5	Ben	2
-6	Hugh	6
+9	Tae	26
+10	Alex	27
+11	Garland	28
+12	Ben	29
+13	Josh	30
+14	Daniel	31
+15	Jake	26
+16	Jess	27
+17	Nick	28
+18	Mike	29
+19	Hugh	30
+20	Lake	31
 \.
 
 
@@ -269,11 +277,11 @@ COPY public.employees (id, name, division_id) FROM stdin;
 --
 
 COPY public.projects (id, name) FROM stdin;
-3	Sell computer
-4	Sales Promotion
-5	Making TV Ad
-6	Sing
-2	Build website
+17	Build Website
+18	Make TV Ad
+19	Hire New Programmer
+20	Plan Party
+21	Sales Promotion
 \.
 
 
@@ -294,7 +302,7 @@ COPY public.schema_migrations (version) FROM stdin;
 -- Name: divisions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('public.divisions_id_seq', 7, true);
+SELECT pg_catalog.setval('public.divisions_id_seq', 31, true);
 
 
 --
@@ -308,14 +316,14 @@ SELECT pg_catalog.setval('public.employee_projects_id_seq', 1, true);
 -- Name: employees_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('public.employees_id_seq', 8, true);
+SELECT pg_catalog.setval('public.employees_id_seq', 20, true);
 
 
 --
 -- Name: projects_id_seq; Type: SEQUENCE SET; Schema: public; Owner: Guest
 --
 
-SELECT pg_catalog.setval('public.projects_id_seq', 6, true);
+SELECT pg_catalog.setval('public.projects_id_seq', 21, true);
 
 
 --
