@@ -6,12 +6,14 @@
                                    :method => "delete"} %></p>
 
 <p><%= link_to "Return to projects", projects_path %></p>
+<p><%= link_to "Return to divisions", divisions_path %></p>
 
 <h3>Current Employees</h3>
 <% if @employees.any? %>
   <ul>
     <% @employees.each do |employee| %>
-      <li><%= link_to employee.name %></li>
+      <li><%= link_to employee.name, division_employee_path(division_id: employee.division_id, id: employee.id) %>
+      <%= link_to "Delete", employee_project_path(id: @project.id, employee_id: employee.id), method: :delete %></li>
     <% end %>
   </ul>
 <% else %>

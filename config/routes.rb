@@ -4,8 +4,5 @@ Rails.application.routes.draw do
     resources :employees
   end
   resources :projects
-
   resources :employee_projects
-
-
 end

@@ -6,7 +6,9 @@
                         :data => {:confirm => "Are you sure?",
                                        :method => "delete"} %></p>
 
+<h3>Nav</h3>
 <p><%= link_to "Return to division information page", division_path(@division) %></p>
+<p><%= link_to "Return to projects information page", projects_path(@projects) %></p>
 
 <h3>Current Projects</h3>
 <% if @projects.any? %>
