@@ -6,3 +6,14 @@
                                    :method => "delete"} %></p>
 
 <p><%= link_to "Return to projects", projects_path %></p>
+
+<h3>Current Employees</h3>
+<% if @employees.any? %>
+  <ul>
+    <% @employees.each do |employee| %>
+      <li><%= link_to employee.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no employees yet.</p>
+<% end %>

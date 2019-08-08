@@ -6,7 +6,7 @@
 
 <% if @employees.any? %>
 <label for="employee">Select a employee</label>
-<select class="form-control" name="employee">
+<select class="form-control" name="employee_id">
   <% @employees.each do |employee| %>
   <option value="<%= employee.id %>"><%= employee.name %></option>
   <% end %>

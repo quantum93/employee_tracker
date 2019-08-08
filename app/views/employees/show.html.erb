@@ -1,9 +1,20 @@
 <h1>Employee: <%= @employee.name %></h1>
 <h2>Division: <%= @division.name %></h2>
 
-<p><%= link_to "Edit employee", edit_division_employee_path(@division, @employee) %></p>
-<p><%= link_to "Delete employee", division_employee_path(@division, @employee),
+<p><%= link_to "Edit employee's project", edit_division_employee_path(@division, @employee) %></p>
+<p><%= link_to "Release employee from company", division_employee_path(@division, @employee),
                         :data => {:confirm => "Are you sure?",
                                        :method => "delete"} %></p>
 
-<p><%= link_to "Return to division", division_path(@division) %></p>
+<p><%= link_to "Return to division information page", division_path(@division) %></p>
+
+<h3>Current Projects</h3>
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.name, project_path(project) %> <button><%= link_to "Delete", delete_employee_projects_path(@employee, @project) %></button></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no projects yet.</p>
+<% end %>

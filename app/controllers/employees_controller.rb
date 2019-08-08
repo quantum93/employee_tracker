@@ -18,6 +18,7 @@ class EmployeesController < ApplicationController
   def show
     @division = Division.find(params[:division_id])
     @employee = Employee.find(params[:id])
+    @projects = @employee.projects
     render :show
   end
 
@@ -31,11 +32,22 @@ class EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     if @employee.update(employee_params)
-      EmployeeProject.create(project_id: params[:project], employee_id: params[:id])
+      @project = Project.find(params[:project_id])
+      if !@employee.projects.include?(@project)
+        @employee.projects.push(@project)
+        @employee.save
+      end
       redirect_to division_path(@employee.division)
     else
       render :edit
     end
+  end
+
+  def remove
+    @employee = Employee.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @employee.projects.delete(@project)
+    @employee.save    
   end
 
   def destroy
