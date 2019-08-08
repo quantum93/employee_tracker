@@ -1,12 +1,12 @@
 <h1><%= @project.name %></h1>
 
-<p><%= link_to "Edit", edit_project_path(@project) %></p>
-<p><%= link_to "Delete", project_path(@project),
+<p><%= link_to "Edit this project", edit_project_path(@project) %></p>
+<p><%= link_to "Delete this project", project_path(@project),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 
-<p><%= link_to "Return to projects", projects_path %></p>
-<p><%= link_to "Return to divisions", divisions_path %></p>
+<p><%= link_to "Return to project list", projects_path %></p>
+<p><%= link_to "Return to division list", divisions_path %></p>
 
 <h3>Current Employees</h3>
 <% if @employees.any? %>

@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+
   def new
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new

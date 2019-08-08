@@ -14,11 +14,11 @@
   <p>No employees are listed for this division.</p>
 <% end %>
 
-<p><%= link_to "Add a employee", new_division_employee_path(@division) %></p>
+<p><%= link_to "Add an employee to this division", new_division_employee_path(@division) %></p>
 
-<p><%= link_to "Edit", edit_division_path(@division) %></p>
-<p><%= link_to "Delete", division_path(@division),
+<p><%= link_to "Edit this division", edit_division_path(@division) %></p>
+<p><%= link_to "Delete this division", division_path(@division),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 
-<p><%= link_to "Return to divisions", divisions_path %></p>
+<p><%= link_to "Return to division list", divisions_path %></p>

@@ -1,6 +1,8 @@
-<h1>Divisions</h1>
+<h1>Divisions of Epicodus Industry Co. Ltd.</h1>
 
 <%= image_tag "division.jpg" %>
+
+<h3>Current Divisions</h3>
 <% if @divisions.any? %>
   <ul>
     <% @divisions.each do |division| %>
@@ -11,6 +13,27 @@
   <p>There are no divisions yet.</p>
 <% end %>
 
+<h3>Current Employees</h3>
+<% if @employees.any? %>
+  <ul>
+    <% @employees.each do |employee| %>
+      <li><%= link_to employee.name, division_employee_path(division_id: employee.division_id, id: employee.id) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no divisions yet.</p>
+<% end %>
+
+<h3>Current Projects</h3>
+<% if @projects.any? %>
+  <ul>
+    <% @projects.each do |project| %>
+      <li><%= link_to project.name, project_path(id: project.id) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no divisions yet.</p>
+<% end %>
 
 <p><%= link_to "Create new division", new_division_path %></p>
 <p><%= link_to "Return to projects information page", projects_path(@projects) %></p>

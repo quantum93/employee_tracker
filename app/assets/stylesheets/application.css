@@ -34,3 +34,9 @@
    background-color: lightgreen;
    font-family: 'Signika', sans-serif;
  }
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
