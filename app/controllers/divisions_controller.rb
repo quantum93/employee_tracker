@@ -46,8 +46,6 @@ class DivisionsController < ApplicationController
     redirect_to divisions_path
   end
 
-  # Other controller methods go here.
-
   private
   def division_params
     params.require(:division).permit(:name)

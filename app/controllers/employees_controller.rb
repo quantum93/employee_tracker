@@ -32,8 +32,8 @@ class EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
+    @project = Project.find(params[:project_id])
     if @employee.update(employee_params)
-      @project = Project.find(params[:project_id])
       if !@employee.projects.include?(@project)
         @employee.projects.push(@project)
         @employee.save
@@ -49,7 +49,6 @@ class EmployeesController < ApplicationController
     @employee.destroy
     redirect_to division_path(@employee.division)
   end
-  # Other controller actions go here.
 
   private
   def employee_params
