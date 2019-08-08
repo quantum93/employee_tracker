@@ -33,13 +33,12 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @employee = Employee.find(params[:employee_id])
     if @project.update(project_params)
-      @employee = Employee.find(params[:employee_id])
       if !@project.employees.include?(@employee)
         @project.employees.push(@employee)
         @project.save
       end
-      # EmployeeProject.create(employee_id: params[:employee], project_id: params[:id])
       redirect_to projects_path
     else
       render :edit

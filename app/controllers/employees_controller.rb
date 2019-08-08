@@ -43,13 +43,6 @@ class EmployeesController < ApplicationController
     end
   end
 
-  def remove
-    @employee = Employee.find(params[:id])
-    @project = Project.find(params[:project_id])
-    @employee.projects.delete(@project)
-    @employee.save    
-  end
-
   def destroy
     @employee = Employee.find(params[:id])
     @employee.destroy

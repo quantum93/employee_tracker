@@ -1,15 +1,12 @@
 class EmployeeProjectsController < ApplicationController
 
-  def delete
+  def destroy
+    binding.pry
     @employee = Employee.find(params[:id])
     @project = Project.find(params[:project_id])
     @employee.projects.delete(@project)
     @employee.save
-  end
-
-  private
-  def employee_project_params
-    params.require(:project).permit(:name)
+    redirect_to division_employee_path(division_id: @employee.division_id, id: @employee.id)
   end
 
 end

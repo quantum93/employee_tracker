@@ -12,7 +12,8 @@
 <% if @projects.any? %>
   <ul>
     <% @projects.each do |project| %>
-      <li><%= link_to project.name, project_path(project) %> <button><%= link_to "Delete", delete_employee_projects_path(@employee, @project) %></button></li>
+      <li><%= link_to project.name, project_path(project) %>
+      <%= link_to "Delete", employee_project_path(id: @employee.id, project_id: project.id), method: :delete %></li>
     <% end %>
   </ul>
 <% else %>
