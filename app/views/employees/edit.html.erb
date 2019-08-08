@@ -3,5 +3,17 @@
 <%= form_for [@division, @employee] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+
+  <% if @projects.any? %>
+  <label for="project">Select a project</label>
+  <select class="form-control" name="project">
+    <% @projects.each do |project| %>
+    <option value="<%= project.id %>"><%= project.name %></option>
+    <% end %>
+  </select>
+  <% else %>
+  <p>No projects available.</p>
+  <% end %>
+
   <p><%= f.submit %></p>
 <% end %>

@@ -4,7 +4,6 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
-
 <% if @employees.any? %>
 <label for="employee">Select a employee</label>
 <select class="form-control" name="employee">
@@ -15,5 +14,6 @@
 <% else %>
 <p>No employees available.</p>
 <% end %>
-<%= f.submit  %>
+
+<p><%= f.submit  %></p>
 <% end %>

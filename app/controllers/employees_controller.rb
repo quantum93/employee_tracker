@@ -24,12 +24,14 @@ class EmployeesController < ApplicationController
   def edit
     @division = Division.find(params[:division_id])
     @employee = Employee.find(params[:id])
+    @projects = Project.all
     render :edit
   end
 
   def update
     @employee = Employee.find(params[:id])
     if @employee.update(employee_params)
+      EmployeeProject.create(project_id: params[:project], employee_id: params[:id])
       redirect_to division_path(@employee.division)
     else
       render :edit
