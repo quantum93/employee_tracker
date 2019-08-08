@@ -28,3 +28,5 @@ class Division < ApplicationRecord
   has_many :employees, dependent: :destroy
 end
 _
+
+using google fonts from "google fonts"
